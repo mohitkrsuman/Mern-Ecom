@@ -44,7 +44,9 @@ app.use('*', function(req, res){
 const PORT = process.env.PORT || 8080;
 
 // listen
-app.listen(PORT, () => {
-   console.log(`Server is running on ${process.env.DEV_MODE} mode on port ${PORT}.`.bgGreen.black);
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on ${process.env.DEV_MODE} mode on port ${PORT}.`);
+    });
 });
 
