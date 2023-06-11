@@ -7,7 +7,7 @@ import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from './routes/ProductRoutes.js';
 import cors from 'cors';
-import path from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 // configure env
@@ -20,8 +20,7 @@ connectDB();
 const app = express();
 
 // es module fix
-const __filename = fileURLTOPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // middlewares
 app.use(cors());
