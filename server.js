@@ -7,7 +7,7 @@ import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from './routes/ProductRoutes.js';
 import cors from 'cors';
-import { dirname } from 'path';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 // configure env
@@ -20,7 +20,7 @@ connectDB();
 const app = express();
 
 // es module fix
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // middlewares
 app.use(cors());
@@ -48,4 +48,6 @@ connectDB().then(() => {
         console.log(`Server is running on ${process.env.DEV_MODE} mode on port ${PORT}.`);
     });
 });
+
+
 
